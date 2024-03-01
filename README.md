@@ -1,2 +1,1 @@
-# 241012_prfctDay.github.io
-Mobile Wedding Invitation
+# 241012prfctday.github.io
