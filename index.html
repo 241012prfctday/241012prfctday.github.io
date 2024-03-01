@@ -14,7 +14,7 @@
     <meta property="og:image:height" content="800" />
     <meta property="og:description" content="건희❤지혜 결혼식에 초대합니다." />
     <meta name="format-detection" content="telephone=no" />
-    <title>이건희, 김지혜의 모바일 청첩장</title>
+    <title>건희❤지혜 청첩장</title>
     <link rel="icon" href="img/favicon.jpg">
     <link rel="stylesheet" href="css/lightbox.min.css">
 	
@@ -43,6 +43,7 @@
             max-width: 15%;
             height: auto;
         }
+
         input {
             outline:none;
             border:0;
@@ -485,6 +486,16 @@
 <script src="js/lightbox-plus-jquery.min.js"></script>
 
 <script>
+    // input size 조절
+    function resizeInput() {
+    $(this).attr('size', $(this).val().length);
+    }
+    
+    $('input[type="text"]')
+        // event handler
+        .keyup(resizeInput)
+        // resize on page load
+        .each(resizeInput);
 
     document.addEventListener('DOMContentLoaded', function () {
         var clipboard = new ClipboardJS('#copy');
@@ -497,6 +508,8 @@
             alert('복사 실패');
         });
     });
+
+ 
 </script>
 </body>
 </html>
