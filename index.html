@@ -79,6 +79,10 @@
             let date = new Date('2024-10-12');
             let currentDate = new Date();
 
+	    //시간 무시하기 
+	    date.setHours(0,0,0,0); 
+	    currentDate.setHours(0,0,0,0);
+	
             let result = date - currentDate;
             let misec = 24 * 60 * 60 * 1000;
 
