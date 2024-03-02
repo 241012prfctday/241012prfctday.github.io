@@ -74,21 +74,25 @@
             }
         );
         wow.init();
-
+        
+        <!-- 최초 로드 -->
         $(document).ready(function() {
+            diffDate();
+        });
+
+        // D-Day 계산
+        function diffDate(){
             let date = new Date('2024-10-12');
             let currentDate = new Date();
 
-	    //시간 무시하기 
-	    date.setHours(0,0,0,0); 
-	    currentDate.setHours(0,0,0,0);
-	
             let result = date - currentDate;
             let misec = 24 * 60 * 60 * 1000;
-
+            
             result = (result <= 0)? 0 : (Math.floor(result/misec)+1);
+            console.log(result)
             $("#d-day").html(result);
-        });
+        }
+        setInterval(diffDate,10000); // 주기적으로(10초) D-Day 재계산
     </script>
 	
 </head>
