@@ -12,7 +12,7 @@
 }
 @font-face {
   font-family: 'NanumMyeongjo-b';
-  src: url('../font/NotoSansKR-Regular.ttf') format('truetype');
+  src: url('../font/omyu pretty.ttf') format('truetype');
 }
 
 @font-face {
@@ -43,7 +43,7 @@ a:hover {
   color: #333;
   text-shadow: none;
   font-family: NanumMyeongjo-r;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
 }
 
 .top-title-sub{
@@ -51,7 +51,7 @@ a:hover {
   color: #333;
   text-shadow: none;
   font-family: NanumMyeongjo-b;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 
@@ -215,7 +215,7 @@ header {
 .section2-main {
   font-family: NanumMyeongjo-b;
   line-height: 1.5em;
-  font-size: 1.35rem;
+  font-size: 2rem;
   position: relative;
 }
 
@@ -237,7 +237,7 @@ header {
 .section2-sub {
   font-family: NanumMyeongjo-b;
   line-height: 2em;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .section3 {
@@ -281,7 +281,7 @@ header {
 .section4-sec2 {
   font-family: NanumMyeongjo-b;
   line-height: 1.5em;
-  font-size: 1.35rem;
+  font-size: 1.5rem;
 }
 
 .section4-sec3 {
@@ -416,12 +416,12 @@ header {
 .section7-main {
   font-family: NanumMyeongjo-b;
   line-height: 1.4em;
-  font-size: 1.4rem;
+  font-size: 2rem;
 }
 
 .section7-button {
   font-family: NanumMyeongjo-b;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   background-color: #CC9999;
   color: #fff;
   border: 0;

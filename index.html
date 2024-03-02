@@ -74,17 +74,12 @@
             }
         );
         wow.init();
-        
-        <!-- 최초 로드 -->
-        $(document).ready(function() {
-            diffDate();
-        });
 
         // D-Day 계산
         function diffDate(){
             let date = new Date('2024-10-12');
             let currentDate = new Date();
-
+            
             let result = date - currentDate;
             let misec = 24 * 60 * 60 * 1000;
             
@@ -93,22 +88,84 @@
             $("#d-day").html(result);
         }
         setInterval(diffDate,10000); // 주기적으로(10초) D-Day 재계산
+
+
+        // 음악재생
+        var audio = new Audio();
+        audio.autoplay = true; // 브라우저 정책상 자동재생은 막힌듯..
+
+
+        // 음악 버튼동작
+        function playMusic(e){
+            var value = e.target.value;
+            var classNm = e.target.className;
+            var bgm = e.target.id;
+
+            // 음악 교차재생 솔루션
+            audio.pause();
+            switch (bgm) {
+                case 'bgm1':
+                    audio = new Audio('/music/perfectDay-bgm.mp3');
+                    a2.value = '🔊';    a2.className = 'audioOn';
+                    a3.value = '🔊';    a3.className = 'audioOn';
+                break;
+                case 'bgm2':
+                    audio = new Audio('/music/04 My pleasure (0924).mp3')
+                    a1.value = '🔊';    a1.className = 'audioOn';
+                    a3.value = '🔊';    a3.className = 'audioOn';
+                break;
+                case 'bgm3':
+                    audio = new Audio('/music/05 Thank U (0927).mp3')
+                    a1.value = '🔊';    a1.className = 'audioOn';
+                    a2.value = '🔊';    a2.className = 'audioOn';
+                break;
+            }
+            
+            // console.log(e.target)
+            // console.log(classNm)
+            // console.log(bgm)
+
+            audio.currentTime = 0;
+            audio.loop = true;
+            audio.volume=0.1;
+
+            // 동일 음악 재생/정지
+            switch (classNm) {
+                case 'audioOn':
+                    audio.play();
+                    e.target.value = '🔈';
+                    e.target.className = 'audioOff';
+                break;
+            
+                case 'audioOff':
+                    audio.pause();
+                    e.target.value = '🔊';
+                    e.target.className = 'audioOn';
+                break;
+            }
+        }
+
+        // 최초 로드
+        $(document).ready(function() {
+            diffDate();
+        });
     </script>
 	
 </head>
 <body class="text-center">
 <div class="top-div">
-    <header class="inner cover cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="wow fadeInUp inner cover cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
     </header>
     <hr class="cover-container"/>
     <br/>
     <main role="main" class="inner">
         <div class="wow fadeInUp">
             <p class="wow fadeInUp section2-title section2-sub inner cover cover-container d-flex w-100 h-100 p-2 mx-auto flex-column">
-                함께 맞이하는 세번째 가을, <br/>
+                함께 맞이하는 세 번째 가을, <br/>
                 저희 결혼합니다 <br/>
 	    	</p>
         </div>
+        <br/> <br/> <br/>
     
     	<div class="wow fadeInUp">
             <p class="top-title">
@@ -348,7 +405,7 @@
             <div class="wow fadeInUp  section6-title">
                 <p class="section6-location-main" style="margin-bottom: 0;">디엘웨딩홀 마이아홀</p>
                 <p class="section6-location-sub" style="text-align: center;">
-                    부산 동구 조방로 14 (범일동 830-140) 동일타워 3층
+                    부산 동구 조방로 14 (범일동 830-140) </br>동일타워 3층
                 </p>
             </div>
             <br/>
@@ -449,43 +506,51 @@
         <div class="section3 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
             <p class="wow fadeInUp section3-title section3-main">Gallery</p>
-	    <div>
-	      <a class="example-image-link" href="img/wedding/01.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/01.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/02.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/02.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/03.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/03.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/04.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/04.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/05.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/05.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/06.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/06.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/07.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/07.jpg" alt=""/></a>
+            <div>
+            <a class="example-image-link" href="img/wedding/01.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/01.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/02.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/02.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/03.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/03.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/04.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/04.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/05.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/05.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/06.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/06.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/07.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/07.jpg" alt=""/></a>
 
-	      <a class="example-image-link" href="img/wedding/10.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/10.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/11.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/11.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/12.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/12.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/13.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/13.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/14.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/14.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/15.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/15.jpg" alt=""/></a>
-          
-	      <a class="example-image-link" href="img/wedding/16.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/16.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/17.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/17.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/08.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/08.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/09.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/09.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/18.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/18.jpg" alt=""/></a>
-          <!--
-	      <a class="example-image-link" href="img/wedding/21.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/21.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/22.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/22.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/23.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/23.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/24.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/24.jpg" alt=""/></a>
-	      <a class="example-image-link" href="img/wedding/25.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/25.jpg" alt=""/></a>		    
-          -->
-	    </div>
-        </div>	    
+            <a class="example-image-link" href="img/wedding/10.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/10.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/11.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/11.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/12.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/12.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/13.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/13.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/14.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/14.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/15.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/15.jpg" alt=""/></a>
+            
+            <a class="example-image-link" href="img/wedding/16.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/16.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/17.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/17.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/08.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/08.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/09.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/09.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/18.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/18.jpg" alt=""/></a>
+            <!--
+            <a class="example-image-link" href="img/wedding/21.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/21.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/22.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/22.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/23.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/23.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/24.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/24.jpg" alt=""/></a>
+            <a class="example-image-link" href="img/wedding/25.jpg" data-lightbox="example-set" data-title="이전/다음: 좌/우 / 종료: 외부 영역"><img class="img-thumbnail" src="img/wedding/25.jpg" alt=""/></a>		    
+            -->
+            </div>
+        </br></br></br></br></br>
+        </div>
+    </br></br></br></br></br>
 
-	<!-- FOOTER SECTION -->
-	<footer class="pt-5 text-muted text-center text-small section8">
+        <!-- FOOTER SECTION -->
+        <footer class="pt-5 text-muted text-center text-small section8">
             <p class="mb-1">© 2024-10-12 Keonhee, Jihye</p>
             <br/><br/>
             <br/><br/>
         </footer>
+
+        <div>
+            <input type='button' class="audioOn" id="bgm1" style="position: fixed;bottom:5%;right: 15%;" value='🔊'/>
+            <input type='button' class="audioOn" id="bgm2" style="position: fixed;bottom:5%;right: 10%;" value='🔊'/>
+            <input type='button' class="audioOn" id="bgm3" style="position: fixed;bottom:5%;right: 5%;" value='🔊'/>
+        </div>
     </main>
 </div>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -496,7 +561,7 @@
 <script>
     // input size 조절
     function resizeInput() {
-    $(this).attr('size', $(this).val().length);
+        $(this).attr('size', $(this).val().length);
     }
     
     $('input[type="text"]')
@@ -516,6 +581,13 @@
             alert('복사 실패');
         });
     });
+    var a1 = document.getElementById('bgm1');       a1.addEventListener('click', playMusic);
+    var a2 = document.getElementById('bgm2');       a2.addEventListener('click', playMusic);
+    var a3 = document.getElementById('bgm3');       a3.addEventListener('click', playMusic);
+
+   
+
+
 
  
 </script>
