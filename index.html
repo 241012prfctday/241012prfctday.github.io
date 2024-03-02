@@ -291,17 +291,17 @@
                         <div class="modal-body section7-modal section7-modal-content">
                             <b>신랑</b></br>
                             이건희 <input type="text" id="copy-input1" value="신한 110305756956" readonly /> 
-                            <button class="section7-button" id="copy" data-clipboard-target="#copy-input1">복사</button>
+                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input1">복사</button>
                         </div>
                         <div class="modal-body section7-modal section7-modal-content">
                             <b>혼주</b> </br>
                             이효근 
                             <input type="text" id="copy-input1-1" value="신한 1111111111" readonly /> 
-                            <button class="section7-button" id="copy" data-clipboard-target="#copy-input1-1">복사</button>
+                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input1-1">복사</button>
                             </br>
                             김수옥 
                             <input type="text" id="copy-input1-2" value="신한 2222222222" readonly /> 
-                            <button class="section7-button" id="copy" data-clipboard-target="#copy-input1-2">복사</button>
+                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input1-2">복사</button>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
@@ -326,18 +326,18 @@
                         <div class="modal-body section7-modal section7-modal-content">
                             <b>신부</b><br>
                             김지혜 <input type="text" id="copy-input2" value="국민 96612051452" readonly /> 
-                            <button class="section7-button" id="copy" data-clipboard-target="#copy-input2">복사</button>
+                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input2">복사</button>
                         </div>
 
                         <div class="modal-body section7-modal section7-modal-content">
                             <b>혼주</b> </br>
                             김천득 
                             <input type="text" id="copy-input2-1" value="국민 11111111111" readonly /> 
-                            <button class="section7-button" id="copy" data-clipboard-target="#copy-input2-1">복사</button>
+                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input2-1">복사</button>
                             </br>
                             김정미 
                             <input type="text" id="copy-input2-2" value="국민 22222222222" readonly /> 
-                            <button class="section7-button" id="copy" data-clipboard-target="#copy-input2-2">복사</button>
+                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input2-2">복사</button>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
@@ -615,7 +615,9 @@
         var clipboard = new ClipboardJS('#copy');
         
         clipboard.on('success', function (e) {
-            alert('복사되었습니다.');
+            e.trigger.className.indexOf('accntNo') >= 0
+                ? alert('복사되었습니다.')
+                : alert('공유 주소가 복사되었습니다.');
         });
 
         clipboard.on('error', function (e) {
