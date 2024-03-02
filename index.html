@@ -569,7 +569,11 @@
         <div class="col-md-12">
             <div class="my-3 text-center">
                 <img alt="share" id="btnShare"
-                     src="img/share.svg" height="60" width="60" style="cursor: pointer;"/>
+                     src="img/share.svg" height="60" width="60" style="cursor: pointer;" />
+                    </div>
+            <div class="my-3 text-center">
+                <input type="text" id="copy-input3" value="https://241012prfctday.github.io/" readonly style="border: 1px;" /></br>
+                <button class="section7-button urlCopy" id="copy" data-clipboard-target="#copy-input3" style="visibility: hidden;">주소복사</button>
             </div>
         </div>
         <br/><br/>
@@ -639,7 +643,8 @@
                 .then(() => console.log("sharing success")) // 공유성공
                 .catch((err) => console.log('sharing error', error))    // 에러
         }else{
-            alert("공유기능 미지원 브라우저입니다.");   // 공유 미지원
+            // 미지원 브라우저(카톡 브라우저 등)일 경우 복사동작
+            document.querySelector(".urlCopy").click();
         }
     })
 
