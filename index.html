@@ -645,7 +645,7 @@
     var btnShare = document.getElementById("btnShare");
 
     btnShare.addEventListener("click",function(){
-        Kakao.init('8fc4fdfa6290fbb0c2887f07f40347a4');
+        
         if(navigator.share){
             navigator.share(data)
                 .then(() => console.log("sharing success")) // 공유성공
@@ -654,7 +654,7 @@
             // 카카오톡 인앱 브라우저일 경우 복사동작 후 api동작
             document.querySelector(".urlCopy").click();
             // KAKAO api
-            
+            Kakao.init('8fc4fdfa6290fbb0c2887f07f40347a4');
             Kakao.Share.sendDefault ({
                 objectType: "feed",
                 content: {
