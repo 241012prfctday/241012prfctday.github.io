@@ -648,11 +648,7 @@
 
     btnShare.addEventListener("click",function(){
         
-        if(navigator.share){
-            navigator.share(data)
-                .then(() => console.log("sharing success")) // 공유성공
-                .catch((err) => console.log('sharing error', error))    // 에러
-        }else if(navigator.userAgent.match("KAKAOTALK")){
+        if(navigator.userAgent.match("KAKAOTALK")){
             // 카카오톡 인앱 브라우저일 경우 복사동작 후 api동작
             document.querySelector(".urlCopy").click();
             // KAKAO api
@@ -668,6 +664,10 @@
                     },
                 },
             });
+        }else if(navigator.share){
+            navigator.share(data)
+                .then(() => console.log("sharing success")) // 공유성공
+                .catch((err) => console.log('sharing error', error))    // 에러
         }else{
             // 미지원 브라우저(카톡 브라우저 등)일 경우 복사동작
             document.querySelector(".urlCopy").click();
