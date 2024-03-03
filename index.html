@@ -51,10 +51,12 @@
 
         .audioOn{
             font-size: 1.3rem;
+            opacity: 0.3;
 
         }
         .audioOff{
             font-size: 1.3rem;
+            opacity: 0.3;
         }
     </style>
     <!-- Custom styles for this template -->
@@ -68,6 +70,9 @@
 
     <!-- 클립보드 복사 -->
     <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+    <!-- 카카오톡 공유하기 js-->
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     
     <script>
         var wow = new WOW(
@@ -105,34 +110,34 @@
 
         // 음악 버튼동작
         function playMusic(e){
-            var value = e.target.value;
+            var src = e.target.src;
             var classNm = e.target.className;
             var bgm = e.target.id;
-
+            // audio = new Audio('/music/daisy.mp3');
             // 음악 교차재생 솔루션
             audio.pause();
             switch (bgm) {
                 case 'bgm1':
-                    audio = new Audio('/music/Perfect Day (Inst.).mp3');
-                    a2.value = '🔊';    a2.className = 'audioOn';
-                    a3.value = '🔊';    a3.className = 'audioOn';
+                    audio = new Audio('/music/daisy.mp3');
+                    // a2.src = 'img/bgmOn.svg';    a2.className = 'audioOn';
+                    // a3.src = 'img/bgmOn.svg';    a3.className = 'audioOn';
                 break;
-                case 'bgm2':
+                /* case 'bgm2':
                     audio = new Audio('/music/04 My pleasure (0924).mp3')
-                    a1.value = '🔊';    a1.className = 'audioOn';
-                    a3.value = '🔊';    a3.className = 'audioOn';
+                    a1.src = 'img/bgmOn.svg';    a1.className = 'audioOn';
+                    a3.src = 'img/bgmOn.svg';    a3.className = 'audioOn';
                 break;
                 case 'bgm3':
                     audio = new Audio('/music/05 Thank U (0927).mp3')
-                    a1.value = '🔊';    a1.className = 'audioOn';
-                    a2.value = '🔊';    a2.className = 'audioOn';
-                break;
+                    a1.src = 'img/bgmOn.svg';    a1.className = 'audioOn';
+                    a2.src = 'img/bgmOn.svg';    a2.className = 'audioOn';
+                break; */
             }
             
             // console.log(e.target)
             // console.log(classNm)
             // console.log(bgm)
-
+           
             audio.currentTime = 0;
             audio.loop = true;
             audio.volume=0.05;
@@ -140,14 +145,15 @@
             // 동일 음악 재생/정지
             switch (classNm) {
                 case 'audioOn':
+                
                     audio.play();
-                    e.target.value = '🔈';
+                    e.target.src = '/img/bgmOff.svg';
                     e.target.className = 'audioOff';
                 break;
             
                 case 'audioOff':
                     audio.pause();
-                    e.target.value = '🔊';
+                    e.target.src = '/img/bgmOn.svg';
                     e.target.className = 'audioOn';
                 break;
             }
@@ -576,21 +582,20 @@
                 <button class="section7-button urlCopy" id="copy" data-clipboard-target="#copy-input3" style="visibility: hidden;">주소복사</button>
             </div>
         </div>
-        <br/><br/>
     </div>
-    </br></br>
 
         <!-- FOOTER SECTION -->
         <footer class="pt-5 text-muted text-center text-small section8">
             <p class="mb-1">© 2024-10-12 Keonhee, Jihye</p>
-            <br/><br/>
+            <br/>
+            <p class="mb-1"  style="font-size: smaller; font-family:NanumMyeongjo-b;"> Music by 오늘의 일기 <br/> 사랑스러운 나의 그대 : 어쿠스틱 기타 사운드, 봄 음악 모음 </p>
             <br/><br/>
         </footer>
 
         <div>
-            <input type='button' class="audioOn" id="bgm1" style="position: fixed;bottom:5%;left: 35%;" value='🔊'/>
-            <input type='button' class="audioOn" id="bgm2" style="position: fixed;bottom:5%;left: 20%;" value='🔊'/>
-            <input type='button' class="audioOn" id="bgm3" style="position: fixed;bottom:5%;left: 5%;" value='🔊'/>
+            <!-- <img class="audioOn" id="bgm1" style="position: fixed;bottom:5%;left: 35%;" src="img/bgmOn.svg" alt=""/>
+            <img class="audioOn" id="bgm2" style="position: fixed;bottom:5%;left: 20%;" src="img/bgmOn.svg" alt=""/> -->
+            <img class="audioOn" id="bgm1" style="position: fixed;bottom:5%;left: 5%;" src="img/bgmOn.svg" alt=""/>
         </div>
     </main>
 </div>
@@ -644,6 +649,22 @@
             navigator.share(data)
                 .then(() => console.log("sharing success")) // 공유성공
                 .catch((err) => console.log('sharing error', error))    // 에러
+        }else if(navigator.userAgent.match("KAKAOTALK")){
+            // 카카오톡 인앱 브라우저일 경우 복사동작 후 api동작
+            document.querySelector(".urlCopy").click();
+            // KAKAO api
+            Kakao.Link.sendDefault({
+                objectType: "feed",
+                content: {
+                    title: "건희❤지혜 결혼식에 초대합니다.", // 공유될 제목
+                    description: "건희❤지혜 결혼식에 초대합니다.", // 공유될 설명
+                    imageUrl: "https://241012prfctday.github.io/img/header.jpg", // 공유될 이미지 url
+                    link: {
+                        mobileWebUrl: "https://241012prfctday.github.io/", // 공유될 모바일 URL
+                        webUrl: "https://241012prfctday.github.io/", // 공유될 웹 URL
+                    },
+                },
+            });
         }else{
             // 미지원 브라우저(카톡 브라우저 등)일 경우 복사동작
             document.querySelector(".urlCopy").click();
