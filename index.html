@@ -73,6 +73,9 @@
 
     <!-- 카카오톡 공유하기 js-->
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+    <script>
+        Kakao.init('8fc4fdfa6290fbb0c2887f07f40347a4'); // 사용하려는 앱의 JavaScript 키 입력
+    </script>
     
     <script>
         var wow = new WOW(
@@ -654,7 +657,6 @@
             // 카카오톡 인앱 브라우저일 경우 복사동작 후 api동작
             document.querySelector(".urlCopy").click();
             // KAKAO api
-            Kakao.init('8fc4fdfa6290fbb0c2887f07f40347a4');
             Kakao.Share.sendDefault ({
                 objectType: "feed",
                 content: {
@@ -680,5 +682,6 @@
 
  
 </script>
+
 </body>
 </html>
