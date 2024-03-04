@@ -93,7 +93,7 @@
 
         // D-Day 계산
         function diffDate(){
-            let date = new Date('2024-10-12');
+            let date = new Date('2024-10-12 00:00:00');
             let currentDate = new Date();
 		
 	    let result = date - currentDate;
@@ -104,7 +104,7 @@
 	    console.log(`Math.floor(result/misec): ${Math.floor(result/misec)}`);
 		
             result = (result <= 0)? 0 : (Math.floor(result/misec)+1);
-            console.log(`Math.floor(result/misec)-1: ${result}`);
+            console.log(`Math.floor(result/misec)+1: ${result}`);
             $("#d-day").html(result);
         }
         setInterval(diffDate,10000); // 주기적으로(10초) D-Day 재계산
