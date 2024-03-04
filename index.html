@@ -94,13 +94,17 @@
         // D-Day 계산
         function diffDate(){
             let date = new Date('2024-10-12');
-            let currentDate = new Date();
-            console.log(`${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()} ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()} `);
-            let result = date - currentDate;
+            let currentDate = new Date();]
+		
+	    let result = date - currentDate;
             let misec = 24 * 60 * 60 * 1000;
-            
+
+	    console.log(`current: ${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()} ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()} `);
+            console.log(`target: ${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} `)
+	    console.log(`Math.floor(result/misec): ${Math.floor(result/misec)}`);
+		
             result = (result <= 0)? 0 : (Math.floor(result/misec)+1);
-            console.log(result)
+            console.log(`Math.floor(result/misec)-1: ${result}`);
             $("#d-day").html(result);
         }
         setInterval(diffDate,10000); // 주기적으로(10초) D-Day 재계산
