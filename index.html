@@ -95,7 +95,7 @@
         function diffDate(){
             let date = new Date('2024-10-12');
             let currentDate = new Date();
-            
+            console.log(`${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()} ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()} `);
             let result = date - currentDate;
             let misec = 24 * 60 * 60 * 1000;
             
