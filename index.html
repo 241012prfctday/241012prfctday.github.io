@@ -114,18 +114,20 @@
         var audio = new Audio('/music/daisy.mp3');
         audio.autoplay = true; // 크롬은 정책상 자동재생은 막힌듯..
 	    
-	var isPlay = audio.play();
-	if(isPlay){
+	if(audio.paused){
+	    // 정지일 때(재생 안되었을 때)
+	    a1.src = '/img/bgmOff.svg';
+	    a1.className = "audioOff";
+	    
+        }else{
 	    // 자동재생 수행시
 	    a1.src = '/img/bgmOn.svg';
 	    a1.className = "audioOn";
 	    audio.currentTime = 0;
             audio.loop = true;
             audio.volume=0.05;
-        }else{
-	    a1.src = '/img/bgmOff.svg';
-	    a1.className = "audioOff";
 	}
+	    
 
         // 음악 버튼동작
         function playMusic(e){
@@ -591,7 +593,7 @@
         </footer>
 
         <div>
-            <img class="audioOn" id="bgm1" style="position: fixed;bottom:5%;left: 5%; width:50%;" src="/img/bgmOn.svg" alt=""/>
+            <img class="audioOn" id="bgm1" style="position: fixed;bottom:5%;left: 5%; width:0.5rem;" src="/img/bgmOn.svg" alt=""/>
         </div>
     </main>
 </div>
