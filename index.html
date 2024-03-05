@@ -114,8 +114,8 @@
         var audio = new Audio('/music/daisy.mp3');
         audio.autoplay = true; // 크롬은 정책상 자동재생은 막힌듯..
 	    
-	    
-	if(audio.play()){
+	var isPlay = audio.play();
+	if(isPlay){
 	    // 자동재생 수행시
 	    a1.src = '/img/bgmOn.svg';
 	    a1.className = "audioOn";
