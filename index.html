@@ -110,27 +110,7 @@
         setInterval(diffDate,10000); // 주기적으로(10초) D-Day 재계산
 
 	
-        // 음악재생
-        var audio = new Audio('/music/daisy.mp3');
-        audio.autoplay = true; // 크롬은 정책상 자동재생은 막힌듯..
 
-	console.log(audio.paused);
-	    
-	if(audio.paused){
-	    // 정지일 때(재생 안되었을 때)
-   	    console.log("audio paused 됨")
-	    a1.src = '/img/bgmOff.svg';
-	    a1.className = "audioOff";
-	    
-        }else{
-	    // 자동재생 수행시
-	    console.log("audio not paused ")
-	    a1.src = '/img/bgmOn.svg';
-	    a1.className = "audioOn";
-	    audio.currentTime = 0;
-            audio.loop = true;
-            audio.volume=0.05;
-	}
 	    
 
         // 음악 버튼동작
@@ -597,7 +577,7 @@
         </footer>
 
         <div>
-            <img class="audioOn" id="bgm1" style="position: fixed;bottom:5%;left: 5%; width:0.5rem;" src="/img/bgmOn.svg" alt=""/>
+            <img class="audioOn" id="bgm1" style="position: fixed;bottom:5%;left: 5%; width:10%;" src="/img/bgmOn.svg" alt=""/>
         </div>
     </main>
 </div>
@@ -634,6 +614,27 @@
 
     // BGM 선택
     var a1 = document.getElementById('bgm1');       a1.addEventListener('click', playMusic);
+
+    // 음악재생
+    var audio = new Audio('/music/daisy.mp3');
+    audio.autoplay = true; // 크롬은 정책상 자동재생은 막힌듯..
+
+    console.log(audio.paused);
+	    
+    if(audio.paused){
+	    // 정지일 때(재생 안되었을 때)
+   	    console.log("audio paused 됨")
+	    a1.src = '/img/bgmOff.svg';
+	    a1.className = "audioOff";
+    }else{
+	    // 자동재생 수행시
+	    console.log("audio not paused ")
+	    a1.src = '/img/bgmOn.svg';
+	    a1.className = "audioOn";
+	    audio.currentTime = 0;
+            audio.loop = true;
+            audio.volume=0.05;
+    }
 
     // 공유기능
     const data = {
