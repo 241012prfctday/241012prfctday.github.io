@@ -151,9 +151,11 @@
         <br/>
 
         <!-- 인삿말 2 -->
-        <p class="wow fadeInUp section2-title section2-main inner cover cover-container d-flex w-100 h-100 p-5 mx-auto flex-column" style="opacity:0.5">
+        <p class="wow fadeInUp section2-title section2-main inner" style="index:1">
             축하해 주시는<br/>
             모든 분들께
+	</p>
+	<p class="cover cover-container d-flex w-100 h-100 p-5 mx-auto flex-column" style="opacity:0.5">
         </p>
         <p class="wow fadeInUp section2-title section2-sub inner cover cover-container d-flex w-100 h-100 p-2 mx-auto flex-column">
             
@@ -582,7 +584,7 @@
     var a1 = document.getElementById('bgm1');  a1.addEventListener('click', playMusic);
 
     // 음악재생
-    var audio = new Audio('/music/daisy.mp3');
+    var audio = new Audio('/music/Perfect_Day_(Inst.)_cut-1.mp3');
     audio.play(); // 크롬은 정책상 자동재생은 막힌듯..
     audio.currentTime = 0;
     audio.loop = true;
