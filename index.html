@@ -588,7 +588,7 @@
     audio.play(); // 크롬은 정책상 자동재생은 막힌듯..
     audio.currentTime = 0;
     audio.loop = true;
-    audio.volume=0.25;
+    audio.volume=0.5;
 	
     if(audio.paused){
 	    // 정지일 때(재생 안되었을 때)
@@ -613,7 +613,7 @@
    
         audio.currentTime = 0;
         audio.loop = true;
-        audio.volume=0.25;
+        audio.volume=0.5;
 
         // 동일 음악 재생/정지
         switch (classNm) {
