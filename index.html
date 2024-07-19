@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi=medium-dpi">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no,target-densitydpi=device-dpi">
     <meta name="description" content="건희❤️지혜">
     <meta name="author" content="Keon">
     <meta name="generator" content="Jekyll v4.1.1">
@@ -98,13 +98,13 @@
 		
 	    let result = date - currentDate;
             let misec = 24 * 60 * 60 * 1000;
-
+/*
 	    console.log(`current: ${currentDate.getFullYear()}-${currentDate.getMonth()}-${currentDate.getDate()} ${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()} `);
-            console.log(`target: ${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} `)
+        console.log(`target: ${date.getFullYear()}-${date.getMonth()}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()} `)
 	    console.log(`Math.floor(result/misec): ${Math.floor(result/misec)}`);
-		
+*/
             result = (result <= 0)? 0 : (Math.floor(result/misec)+1);
-            console.log(`Math.floor(result/misec)+1: ${result}`);
+//           console.log(`Math.floor(result/misec)+1: ${result}`);
             $("#d-day").html(result);
         }
         setInterval(diffDate,10000); // 주기적으로(10초) D-Day 재계산
@@ -345,7 +345,7 @@
             <p class="wow fadeInUp section7-title section7-main">신랑 신부에게 마음 전하기</p>
             <br/>
             <!-- Button trigger modal -->
-            <button type="button" class="wow fadeInUp btn section7-button" data-toggle="modal" data-target="#groom">
+            <button type="button" class="wow fadeInUp btn section7-button" data-toggle="modal" data-target="#groom" style="margin-bottom: 0.7em;">
                 신랑 측 계좌번호 보기
             </button>
             <!-- Modal -->
@@ -360,18 +360,25 @@
                         </div>
                         <div class="modal-body section7-modal section7-modal-content">
                             <b>신랑</b></br>
-                            이건희 <input type="text" id="copy-input1" value="신한 110305756956" readonly /> 
-                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input1">복사</button>
+                            <div  style="display:flex; justify-content:space-evenly;white-space : nowrap;">
+                                <span class="section4-sec2" style="align-content: center;">이건희</span>
+                                <input type="text" id="copy-input1" value="신한 110-305-756956" readonly /> 
+                                <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input1">복사</button>
+                            </div>
                         </div>
                         <div class="modal-body section7-modal section7-modal-content">
                             <b>혼주</b> </br>
-                            이효근 
-                            <input type="text" id="copy-input1-1" value="신한 1111111111" readonly /> 
-                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input1-1">복사</button>
+                            <div  style="display:flex; justify-content:space-evenly;white-space : nowrap;">
+                                <span class="section4-sec2" style="align-content: center;">이효근 </span>
+                                <input type="text" id="copy-input1-1" value="신한 1111111111" readonly /> 
+                                <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input1-1">복사</button>
+                            </div>
                             </br>
-                            김수옥 
-                            <input type="text" id="copy-input1-2" value="신한 2222222222" readonly /> 
-                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input1-2">복사</button>
+                            <div  style="display:flex; justify-content:space-evenly;white-space : nowrap;">
+                                <span class="section4-sec2" style="align-content: center;">김수옥</span> 
+                                <input type="text" id="copy-input1-2" value="국민 2222222222" readonly /> 
+                                <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input1-2">복사</button>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
@@ -393,21 +400,28 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body section7-modal section7-modal-content">
+                        <div class="modal-body section7-modal section7-modal-content ">
                             <b>신부</b><br>
-                            김지혜 <input type="text" id="copy-input2" value="국민 96612051452" readonly /> 
-                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input2">복사</button>
+                            <div  style="display:flex; justify-content:space-evenly;white-space : nowrap;">
+                                <span class="section4-sec2" style="align-content: center;">김지혜</span> 
+                                <input type="text" id="copy-input2" value="국민 96612051452" readonly /> 
+                                <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input2">복사</button>
+                            </div>
                         </div>
 
                         <div class="modal-body section7-modal section7-modal-content">
                             <b>혼주</b> </br>
-                            김천득 
-                            <input type="text" id="copy-input2-1" value="농협 121034-56-134816" readonly /> 
-                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input2-1">복사</button>
+                            <div  style="display:flex; justify-content:space-evenly;white-space : nowrap;">
+                                <span class="section4-sec2" style="align-content: center;">김천득 </span>
+                                <input type="text" id="copy-input2-1" value="농협 121034-56-134816" readonly /> 
+                                <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input2-1">복사</button>
+                            </div>
                             </br>
-                            김정미 
-                            <input type="text" id="copy-input2-2" value="부산 219-12-002229-9" readonly /> 
-                            <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input2-2">복사</button>
+                            <div  style="display:flex; justify-content:space-evenly;white-space : nowrap;">
+                                <span class="section4-sec2" style="align-content: center;">김정미</span>
+                                <input type="text" id="copy-input2-2" value="부산 219-12-002229-9" readonly /> 
+                                <button class="section7-button accntNo" id="copy" data-clipboard-target="#copy-input2-2">복사</button>
+                            </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
@@ -712,7 +726,7 @@
 	    a1.className = "audioOff";
     }else{
 	    // 자동재생 수행시
-	    console.log("audio not paused ")
+	    console.log("audio not paused(Playing)")
 	    a1.src = '/img/bgmOn.svg';
 	    a1.className = "audioOn";
     }
