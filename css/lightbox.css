@@ -100,40 +100,65 @@ body.lb-disable-scrolling {
   display: block;
 }
 
-.lb-nav a.lb-prev {
-  width: 34%;
-  left: 0;
-  float: left;
-  background: url(../images/prev.png) left 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
+/* PC 환경 */
+@media (hover: hover)and (pointer:fine) {
+  .lb-nav a.lb-prev {
+    width: 35%;
+    left: 0;
+    float: left;
+    background: url(../images/prev.png) left 48% no-repeat;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    -o-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+  }
+  .lb-nav a.lb-prev:hover {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
 }
 
-.lb-nav a.lb-prev:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
+@media (hover: hover)and (pointer:fine){
+  .lb-nav a.lb-next {
+    width: 35%;
+    right: 0;
+    float: right;
+    background: url(../images/next.png) right 48% no-repeat;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    -webkit-transition: opacity 0.6s;
+    -moz-transition: opacity 0.6s;
+    -o-transition: opacity 0.6s;
+    transition: opacity 0.6s;
+  }
+  .lb-nav a.lb-next:hover {
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+  }
 }
 
-.lb-nav a.lb-next {
-  width: 64%;
-  right: 0;
-  float: right;
-  background: url(../images/next.png) right 48% no-repeat;
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  opacity: 0;
-  -webkit-transition: opacity 0.6s;
-  -moz-transition: opacity 0.6s;
-  -o-transition: opacity 0.6s;
-  transition: opacity 0.6s;
+/* 모바일환경 */
+@media (hover: none) and (pointer: coarse) {
+  .lb-nav a.lb-prev {
+    width: 35%;
+    float: left;
+    background: url(../images/prev.png) left 48% no-repeat;
+    background-size: 20%;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+    opacity: .65;
+  }
 }
-
-.lb-nav a.lb-next:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  opacity: 1;
+@media (hover: none) and (pointer: coarse) {
+  .lb-nav a.lb-next {
+    width: 35%;
+    float: right;
+    background: url(../images/next.png) right 48% no-repeat;
+    background-size: 20%;
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
+    opacity: .65;
+  }
 }
 
 .lb-topper {
