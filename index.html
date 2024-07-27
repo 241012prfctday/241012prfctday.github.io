@@ -36,12 +36,13 @@
             }
         }
         .img-thumbnail {
-            padding: 4px;
+            padding: 1px;
             background-color: #fff;
-            border: 1px solid #dee2e6;
-            border-radius: 0.25rem;
+            border: 0px solid #dee2e6;
+            border-radius: 0rem;
             max-width: 32%;
             height: auto;
+            margin: 2px 0px 2px 0px;
         }
 
         input {
@@ -115,11 +116,11 @@
 
             // 갤러리(lightbox) 옵션 설정
             lightbox.option({
-                'resizeDuration'    : 100,
+                'resizeDuration'    : 200,
                 'wrapAround'        : true,
                 'fadeDuration'      : 100,
-                'imageFadeDuration' : 100,
-                'positionFromTop'   : 80,
+                // 'imageFadeDuration' : 100,
+                'positionFromTop'   : 70,
                 'disableScrolling'  : true,
             })
         });
@@ -138,7 +139,6 @@
     <header class="wow fadeInUp inner cover cover-container d-flex w-100 h-100 p-3 mx-auto flex-column ">
     </header>
 
-    <hr class="cover-container"/>
     <br/>
     <main role="main" class="inner">
 
