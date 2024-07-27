@@ -140,7 +140,7 @@ body.lb-disable-scrolling {
   
   position: relative;
   margin: 0 auto;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
   *zoom: 1;
   width: 100%;
   border-bottom-left-radius: 4px;
