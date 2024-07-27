@@ -10771,19 +10771,19 @@ return jQuery;
       }
       return false;
     });
-/* 
+
 	// 슬라이드를 위한 로직
 	
 	var startPoint = 0;
 	var endPoint = 0;
 
 	// 마우스
-	this.$lightbox.on('mousedown',function(e){
+	this.$container.on('mousedown',function(e){
 		//console.log("mousedown", e.pageX);
 		startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
 	});
 
-	this.$lightbox.on('mouseup',function(e){
+	this.$container.on('mouseup',function(e){
 		//console.log("mouseup", e.pageX);
 		endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
 		if (startPoint < endPoint) {
@@ -10808,11 +10808,11 @@ return jQuery;
 	});
 	
 	// 모바일 터치 이벤트 (스와이프)
-	this.$lightbox.on("touchstart", function(e) {
+	this.$container.on("touchstart", function(e) {
 		//console.log("touchstart", e.touches[0].pageX);
 		startPoint = e.touches[0].pageX; // 터치가 시작되는 위치 저장
 	});
-	this.$lightbox.on("touchend", function(e) {
+	this.$container.on("touchend", function(e) {
 		//console.log("touchend", e.changedTouches[0].pageX);
 		endPoint = e.changedTouches[0].pageX; // 터치가 끝나는 위치 저장
 		if (startPoint < endPoint) {
@@ -10835,7 +10835,7 @@ return jQuery;
 		  return false;
 		}
 	});
- */
+
 
     /*
       Show context menu for image on right-click
