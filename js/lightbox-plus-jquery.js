@@ -10771,7 +10771,7 @@ return jQuery;
       }
       return false;
     });
-
+/* 
 	// 슬라이드를 위한 로직
 	
 	var startPoint = 0;
@@ -10835,7 +10835,7 @@ return jQuery;
 		  return false;
 		}
 	});
-
+ */
 
     /*
       Show context menu for image on right-click
