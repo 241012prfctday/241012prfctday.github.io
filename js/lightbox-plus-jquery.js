@@ -10879,7 +10879,7 @@ return jQuery;
     });
 
 
-    this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
+    this.$lightbox.find('.lb-loader, .lb-close, .lb-topper, .lb-dataContainer').on('click', function() {
       self.end();
       return false;
     });
