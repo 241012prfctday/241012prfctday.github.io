@@ -142,20 +142,20 @@ body.lb-disable-scrolling {
 /* 모바일환경 */
 @media (hover: none) or (pointer: coarse) {
   .lb-nav a.lb-prev {
-    width: 35%;
+    min-width: 1.5rem;
     float: left;
     background: url(../images/prev.png) left 48% no-repeat;
-    background-size: 20%;
+    background-size: 100%;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
     opacity: .65;
   }
 }
 @media (hover: none) or (pointer: coarse) {
   .lb-nav a.lb-next {
-    width: 35%;
+    min-width: 1.5rem;
     float: right;
     background: url(../images/next.png) right 48% no-repeat;
-    background-size: 20%;
+    background-size: 100%;
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=65);
     opacity: .65;
   }
@@ -189,9 +189,10 @@ body.lb-disable-scrolling {
 .lb-closeContainer .lb-close {
   display: block;
   float: right;
-  width: 30px;
-  height: 30px;
+  min-width: 1rem;
+  min-height: 1rem;
   background: url(../images/close.png) top right no-repeat;
+  background-size: 100%;
   text-align: right;
   outline: none;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=70);
