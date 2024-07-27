@@ -10710,13 +10710,11 @@ return jQuery;
     // on the page below.
     //
     // Github issue: https://github.com/lokesh/lightbox2/issues/663
-    $('<div id="lightboxOverlay" tabindex="-1" class="lightboxOverlay"></div><div id="lightbox" tabindex="-1" class="lightbox"><div id="lightbox" class="lb-topper"><div class="lb-closeContainer"><a class="lb-close"></a></div></div><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""/><div class="lb-nav"><a class="lb-prev" aria-label="Previous image" href="" ></a><a class="lb-next" aria-label="Next image" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div id="lightbox" class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div></div></div></div>').appendTo($('body'));
+    $('<div id="lightboxOverlay" tabindex="-1" class="lightboxOverlay"></div><div id="lightbox" tabindex="-1" class="lightbox"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" alt=""/><div class="lb-nav"><a class="lb-prev" aria-label="Previous image" href="" ></a><a class="lb-next" aria-label="Next image" href="" ></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div id="lightbox" class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>').appendTo($('body'));
 
     // Cache jQuery objects
     this.$lightbox       = $('#lightbox');
     this.$overlay        = $('#lightboxOverlay');
-    this.$topper 		 = this.$lightbox.find('.lb-topper');
-    this.$dataContainer  = this.$lightbox.find('.lb-dataContainer');
     this.$outerContainer = this.$lightbox.find('.lb-outerContainer');
     this.$container      = this.$lightbox.find('.lb-container');
     this.$image          = this.$lightbox.find('.lb-image');
@@ -10750,20 +10748,6 @@ return jQuery;
     });
 
     this.$outerContainer.on('click', function(event) {
-      if ($(event.target).attr('id') === 'lightbox') {
-        self.end();
-      }
-      return false;
-    });
-
-    this.$topper.on('click', function(event) {
-      if ($(event.target).attr('id') === 'lightbox') {
-        self.end();
-      }
-      return false;
-    });
-
-    this.$dataContainer.on('click', function(event) {
       if ($(event.target).attr('id') === 'lightbox') {
         self.end();
       }
@@ -10879,7 +10863,7 @@ return jQuery;
     });
 
 
-    this.$lightbox.find('.lb-loader, .lb-close, .lb-topper, .lb-dataContainer').on('click', function() {
+    this.$lightbox.find('.lb-loader, .lb-close').on('click', function() {
       self.end();
       return false;
     });
@@ -11071,7 +11055,6 @@ return jQuery;
     var newHeight = imageHeight + this.containerPadding.top + this.containerPadding.bottom + this.imageBorderWidth.top + this.imageBorderWidth.bottom;
 
     function postResize() {
-	  self.$lightbox.find('.lb-topper').width(newWidth);
       self.$lightbox.find('.lb-dataContainer').width(newWidth);
       self.$lightbox.find('.lb-prevLink').height(newHeight);
       self.$lightbox.find('.lb-nextLink').height(newHeight);
@@ -11167,9 +11150,6 @@ return jQuery;
 
     this.$outerContainer.removeClass('animating');
 
-    this.$lightbox.find('.lb-topper').fadeIn(this.options.resizeDuration, function() {
-      return self.sizeOverlay();
-    });
     this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {
       return self.sizeOverlay();
     });
