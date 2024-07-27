@@ -140,7 +140,7 @@ body.lb-disable-scrolling {
 }
 
 /* 모바일환경 */
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none) and (pointer: fine) {
   .lb-nav a.lb-prev {
     width: 35%;
     float: left;
@@ -150,7 +150,7 @@ body.lb-disable-scrolling {
     opacity: .65;
   }
 }
-@media (hover: none) and (pointer: coarse) {
+@media (hover: none) and (pointer: fine) {
   .lb-nav a.lb-next {
     width: 35%;
     float: right;
