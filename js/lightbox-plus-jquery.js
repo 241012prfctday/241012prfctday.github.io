@@ -10918,7 +10918,7 @@ return jQuery;
     }
 
     // Position Lightbox
-    var top  = $window.scrollTop() + this.options.positionFromTop - 40;
+    var top  = $window.scrollTop() + this.options.positionFromTop;
     var left = $window.scrollLeft();
     this.$lightbox.css({
       top: top + 'px',
@@ -10975,7 +10975,7 @@ return jQuery;
       // Calculate the max image dimensions for the current viewport.
       // Take into account the border around the image and an additional 10px gutter on each side.
       maxImageWidth  = windowWidth - self.containerPadding.left - self.containerPadding.right - self.imageBorderWidth.left - self.imageBorderWidth.right - 20;
-      maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - self.options.positionFromTop - 70 - 40;
+      maxImageHeight = windowHeight - self.containerPadding.top - self.containerPadding.bottom - self.imageBorderWidth.top - self.imageBorderWidth.bottom - self.options.positionFromTop - 70;
 
       /*
       Since many SVGs have small intrinsic dimensions, but they support scaling
