@@ -140,7 +140,7 @@ body.lb-disable-scrolling {
   
   position: relative;
   margin: 0 auto;
-  padding-bottom: 10px;
+  padding-bottom: 5px;
   *zoom: 1;
   width: 100%;
   border-bottom-left-radius: 4px;
@@ -156,9 +156,6 @@ body.lb-disable-scrolling {
 .lb-closeContainer{
   padding: 0 4px;
   color: #ccc;
-  
-  right:10%;
-  bottom:10%;
 }
 
 .lb-closeContainer .lb-close {

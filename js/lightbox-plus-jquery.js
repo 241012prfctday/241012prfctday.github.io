@@ -10962,7 +10962,7 @@ return jQuery;
     // Show loading state
     this.$overlay.fadeIn(this.options.fadeDuration);
     $('.lb-loader').fadeIn('slow');
-    this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption', 'lb-topper').hide();
+    this.$lightbox.find('.lb-image, .lb-nav, .lb-prev, .lb-next, .lb-dataContainer, .lb-numbers, .lb-caption').hide();
     this.$outerContainer.addClass('animating');
 
     // When image to show is preloaded, we send the width and height to sizeContainer()
@@ -11167,6 +11167,9 @@ return jQuery;
 
     this.$outerContainer.removeClass('animating');
 
+    this.$lightbox.find('.lb-topper').fadeIn(this.options.resizeDuration, function() {
+      return self.sizeOverlay();
+    });
     this.$lightbox.find('.lb-dataContainer').fadeIn(this.options.resizeDuration, function() {
       return self.sizeOverlay();
     });
