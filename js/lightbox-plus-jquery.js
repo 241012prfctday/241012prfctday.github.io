@@ -10772,6 +10772,71 @@ return jQuery;
       return false;
     });
 
+	// 슬라이드를 위한 로직
+	
+	var startPoint = 0;
+	var endPoint = 0;
+
+	// 마우스
+	this.$lightbox.on('mousedown',function(e){
+		//console.log("mousedown", e.pageX);
+		startPoint = e.pageX; // 마우스 드래그 시작 위치 저장
+	});
+
+	this.$lightbox.on('mouseup',function(e){
+		//console.log("mouseup", e.pageX);
+		endPoint = e.pageX; // 마우스 드래그 끝 위치 저장
+		if (startPoint < endPoint) {
+		  // 마우스가 오른쪽으로 드래그 된 경우
+		  //console.log("prev move");
+		  if (self.currentImageIndex === 0) {
+			self.changeImage(self.album.length - 1);
+		  } else {
+			self.changeImage(self.currentImageIndex - 1);
+		  }
+		  return false;
+		} else if (startPoint > endPoint) {
+		  // 마우스가 왼쪽으로 드래그 된 경우
+		  //console.log("next move");
+		  if (self.currentImageIndex === self.album.length - 1) {
+			self.changeImage(0);
+		  } else {
+			self.changeImage(self.currentImageIndex + 1);
+		  }
+		  return false;
+		}
+	});
+	
+	// 모바일 터치 이벤트 (스와이프)
+	this.$lightbox.on("touchstart", function(e) {
+		//console.log("touchstart", e.touches[0].pageX);
+		startPoint = e.touches[0].pageX; // 터치가 시작되는 위치 저장
+	});
+	this.$lightbox.on("touchend", function(e) {
+		//console.log("touchend", e.changedTouches[0].pageX);
+		endPoint = e.changedTouches[0].pageX; // 터치가 끝나는 위치 저장
+		if (startPoint < endPoint) {
+		// 오른쪽으로 스와이프 된 경우
+		//console.log("prev move");
+		if (self.currentImageIndex === 0) {
+			self.changeImage(self.album.length - 1);
+		  } else {
+			self.changeImage(self.currentImageIndex - 1);
+		  }
+		  return false;
+		} else if (startPoint > endPoint) {
+		// 왼쪽으로 스와이프 된 경우
+		//console.log("next move");
+		if (self.currentImageIndex === self.album.length - 1) {
+			self.changeImage(0);
+		  } else {
+			self.changeImage(self.currentImageIndex + 1);
+		  }
+		  return false;
+		}
+	});
+
+
     /*
       Show context menu for image on right-click
 

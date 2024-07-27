@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://241012prfctday.github.io/img/header.jpg" />
     <meta property="og:image:width" content="552" />
     <meta property="og:image:height" content="800" />
-    <meta property="og:description" content="모바일청첩장🤵👰" />
+    <meta property="og:description" content="10월 12일 (토) 오후 1시/n디엘웨딩홀 마이아홀" />
     <meta name="format-detection" content="telephone=no" />
     <title>건희❤지혜 청첩장</title>
     <link rel="icon" href="img/favicon.jpg">
@@ -36,11 +36,11 @@
             }
         }
         .img-thumbnail {
-            padding: 0.25rem;
+            padding: 4px;
             background-color: #fff;
             border: 1px solid #dee2e6;
             border-radius: 0.25rem;
-            max-width: 15%;
+            max-width: 32%;
             height: auto;
         }
 
@@ -75,6 +75,24 @@
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     <script>
         Kakao.init('8fc4fdfa6290fbb0c2887f07f40347a4'); // 사용하려는 앱의 JavaScript 키 입력
+    </script>
+
+    
+    <script>
+/*         $(document).ready(function(){
+            lightbox.option({
+                'resizeDuration'    : 100,
+                'wrapAround'        : true,
+                'fadeDuration'      : 100,
+                'imageFadeDuration' : 100,
+                'positionFromTop'   : 100,
+            })
+
+
+        })
+ */
+
+
     </script>
     
     <script>
@@ -112,11 +130,26 @@
         // 최초 로드
         $(document).ready(function() {
             diffDate();
+
+            // 갤러리(lightbox) 옵션 설정
+            lightbox.option({
+                'resizeDuration'    : 100,
+                'wrapAround'        : true,
+                'fadeDuration'      : 100,
+                'imageFadeDuration' : 100,
+                'positionFromTop'   : 100,
+                //'alwaysShowNavOnTouchDevices' : true,
+            })
         });
+    </script>
+
+    <!-- 드래그 / 오른쪽클릭 차단-->
+    <script type="text/javascript">
+        document.oncontextmenu = function(){return false;}
     </script>
 	
 </head>
-<body class="text-center">
+<body class="text-center" oncontextmenu="return false" ondragstart="return false" onkeydownn="return false">
 <div class="top-div">
 
     <!-- header 메인 이미지 -->
@@ -761,7 +794,7 @@
                 objectType: "feed",
                 content: {
                     title: "건희❤지혜 결혼식에 초대합니다", // 공유될 제목
-                    description: "건희❤지혜 모바일청첩장", // 공유될 설명
+                    description: "10월 12일 (토) 오후 1시/n디엘웨딩홀 마이아홀", // 공유될 설명
                     imageUrl: "https://241012prfctday.github.io/img/header.jpg", // 공유될 이미지 url
                     link: {
                         mobileWebUrl: "https://m.site.naver.com/1q9bB/", // 공유될 모바일 URL
