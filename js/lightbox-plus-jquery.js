@@ -10930,10 +10930,10 @@ return jQuery;
     if (this.options.disableScrolling) {
       $('body').addClass('lb-disable-scrolling');
 
-	  // 사진 크게볼때 history push
-	  window.history.pushState(null, '', '')
-	  console.log("lightbox open/ history 확인")
-	  console.log(window.history.length)
+	//   // 사진 크게볼때 history push
+	//   window.history.pushState(null, '', '')
+	//   console.log("lightbox open/ history 확인")
+	//   console.log(window.history.length)
     }
 
     this.changeImage(imageNumber);
