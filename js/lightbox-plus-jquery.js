@@ -10930,6 +10930,9 @@ return jQuery;
     if (this.options.disableScrolling) {
       $('body').addClass('lb-disable-scrolling');
     }
+	window.history.pushState(null,null, location.href)
+	console.log("lightbox open/ history 확인")
+	console.log(window.history.length)
 
     this.changeImage(imageNumber);
   };
@@ -11209,9 +11212,10 @@ return jQuery;
   // ios 뒤로가기
   window.onpageshow = function (event) {
   	checkPageShow = true;
+	console.log(event.persisted)
   	if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
-		event.stopPropagation();
-		Lightbox.end();
+
+		window.history.back();
   		console.log("back버튼");
   		return false;
   	}
@@ -11219,8 +11223,8 @@ return jQuery;
   // 뒤로가기 이벤트 감지하여 웹뷰 화면 내리기 - aos 전용
   window.onpagehide = function (event) {
   	if ((window.performance.navigation.type == 0 || window.performance.navigation.type == 2) && checkPageShow) {
-		event.stopPropagation();
-		Lightbox.end();
+
+		window.history.back();
   		console.log("back버튼");
   		return false;
   	}
