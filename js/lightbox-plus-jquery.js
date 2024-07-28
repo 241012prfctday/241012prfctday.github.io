@@ -10836,6 +10836,26 @@ return jQuery;
 		}
 	});
 
+	// 뒤로가기 버튼
+	var checkPageShow = false;
+	// ios 뒤로가기
+	window.onpageshow = function (event) {
+		checkPageShow = true;
+		if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+			self.end();
+			console.log("back버튼");
+			return false;
+		}
+	}
+	// 뒤로가기 이벤트 감지하여 웹뷰 화면 내리기 - aos 전용
+	window.onpagehide = function (event) {
+		if ((window.performance.navigation.type == 0 || window.performance.navigation.type == 2) && checkPageShow) {
+			self.end();
+			console.log("back버튼");
+			return false;
+		}
+	}
+
 
     /*
       Show context menu for image on right-click
