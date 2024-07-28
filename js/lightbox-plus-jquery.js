@@ -10929,10 +10929,12 @@ return jQuery;
     // Disable scrolling of the page while open
     if (this.options.disableScrolling) {
       $('body').addClass('lb-disable-scrolling');
+
+	  // 사진 크게볼때 history push
+	  window.history.pushState(null, '', '')
+	  console.log("lightbox open/ history 확인")
+	  console.log(window.history.length)
     }
-	window.history.pushState(null,null, location.href)
-	console.log("lightbox open/ history 확인")
-	console.log(window.history.length)
 
     this.changeImage(imageNumber);
   };

@@ -794,29 +794,43 @@
         }
     })
 
-
-    // 뒤로가기 버튼
-    var checkPageShow = false;
-    // ios 뒤로가기
     window.onpageshow = function (event) {
-        checkPageShow = true;
-        console.log(event.persisted)
-        if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
-            Lightbox.end();
-            event.stopPropagation();
-            console.log("back버튼");
-            return false;
-        }
-    }
-    // 뒤로가기 이벤트 감지하여 웹뷰 화면 내리기 - aos 전용
-    window.onpagehide = function (event) {
-        if ((window.performance.navigation.type == 0 || window.performance.navigation.type == 2) && checkPageShow) {
-            Lightbox.end();
-            event.stopPropagation();
-            console.log("back버튼");
-            return false;
-        }
-    }
+	if (event.persisted) {
+		console.log('BFCahe로부터 복원됨');
+	}
+	else {
+		console.log('새로 열린 페이지');
+	}
+};
+
+window.addEventListener("popstate", (event) => {
+    Lightbox.end();
+    console.log("back버튼");
+    event.preventDefault();
+
+})
+    // // 뒤로가기 버튼
+    // var checkPageShow = false;
+    // // ios 뒤로가기
+    // window.onpageshow = function (event) {
+    //     checkPageShow = true;
+    //     console.log(event.persisted)
+    //     if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
+    //         Lightbox.end();
+    //         event.stopPropagation();
+    //         console.log("back버튼");
+    //         return false;
+    //     }
+    // }
+    // // 뒤로가기 이벤트 감지하여 웹뷰 화면 내리기 - aos 전용
+    // window.onpagehide = function (event) {
+    //     if ((window.performance.navigation.type == 0 || window.performance.navigation.type == 2) && checkPageShow) {
+    //         Lightbox.end();
+    //         event.stopPropagation();
+    //         console.log("back버튼");
+    //         return false;
+    //     }
+    // }
  
 </script>
 
