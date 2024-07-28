@@ -124,6 +124,13 @@
                 'disableScrolling'  : true,
             })
         });
+        
+        window.addEventListener("popstate", (event) => {
+            Lightbox.end();
+            console.log("back버튼");
+            event.preventDefault();
+
+        })
     </script>
 
     <!-- 드래그 / 오른쪽클릭 차단-->
@@ -803,12 +810,6 @@
 	}
 };
 
-window.addEventListener("popstate", (event) => {
-    Lightbox.end();
-    console.log("back버튼");
-    event.preventDefault();
-
-})
     // // 뒤로가기 버튼
     // var checkPageShow = false;
     // // ios 뒤로가기
