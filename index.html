@@ -135,7 +135,7 @@
         // popup(갤러리, 마음)에서 뒤로가기 버튼 실행시. 닫기 수행
         window.addEventListener("popstate", (event) => {
             lightbox.end();
-	    document.querySelector(".closeBtn").click();
+	    document.querySelector(".closeBtn")?.click();
             event.preventDefault();
 
         })
