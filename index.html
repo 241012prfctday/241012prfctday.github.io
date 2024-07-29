@@ -130,7 +130,7 @@
 	const closeBtn = document.querySelectorAll(".closeBtn")
         window.addEventListener("popstate", (event) => {
             lightbox.end();
-	    document.querySelector(".closeBtn")?.click();
+	    //document.querySelector(".closeBtn")?.click();
 	    for(let i = 0; i < closeBtn.length; i++) {
 		closeBtn[i].addEventListener("click",function(){
 		    document.querySelector(".closeBtn")?.click();
