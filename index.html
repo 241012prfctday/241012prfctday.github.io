@@ -813,11 +813,15 @@
 	// };
 
 	// 마음을 전하는 곳 modal button 클릭시 history push
-	document.querySelectorAll(".popupBtn")?.addEventListener("click",function(){
-		window.history.pushState(null,'','');
-		//console.log("popup modal open / history 확인");
-		console.log(window.history.length);
-	});
+	const popupBtn = document.querySelectorAll(".popupBtn")
+	
+	for(let i = 0; i < popupBtn.length; i++) {
+		popupBtn[i].addEventListener("click",function(){
+			window.history.pushState(null,'','');
+			//console.log("popup modal open / history 확인");
+			console.log(window.history.length);
+		});
+	}
  
 </script>
 
