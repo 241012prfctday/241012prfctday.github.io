@@ -494,7 +494,7 @@
             <p class="wow fadeInUp section7-title section7-main">마음을 전하는 곳</p>
             <br/>
             <!-- Button trigger modal -->
-            <button type="button" class="wow fadeInUp btn section7-button" id="popupBtn" data-toggle="modal" data-target="#groom" style="margin-bottom: 0.7em;">
+            <button type="button" class="wow fadeInUp btn section7-button popupBtn" data-toggle="modal" data-target="#groom" style="margin-bottom: 0.7em;">
                 신랑 측 계좌번호 보기
             </button>
             <!-- Modal -->
@@ -536,7 +536,7 @@
                 </div>
             </div>
             <!-- Button trigger modal -->
-            <button type="button" class="wow fadeInUp btn section7-button" id="popupBtn" data-toggle="modal" data-target="#bride">
+            <button type="button" class="wow fadeInUp btn section7-button popupBtn" data-toggle="modal" data-target="#bride">
                 신부 측 계좌번호 보기
             </button>
             <!-- Modal -->
@@ -813,9 +813,9 @@
 	// };
 
 	// 마음을 전하는 곳 modal button 클릭시 history push
-	document.getElementById("popupBtn").addEventListener("click",function(){
+	document.querySelector("popupBtn")?.addEventListener("click",function(){
 		window.history.pushState(null,'','');
-		console.log("popup modal open / history 확인");
+		//console.log("popup modal open / history 확인");
 		console.log(window.history.length);
 	});
  
