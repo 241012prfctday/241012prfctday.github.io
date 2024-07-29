@@ -815,13 +815,13 @@
 	}
 
 	// popup(갤러리, 마음)에서 뒤로가기 버튼 실행시. 닫기 수행
-	const closeBtn = document.querySelectorAll(".closeBtn")
+	const closeBtn = document.querySelectorAll(".closeBtn");
         window.addEventListener("popstate", (event) => {
             lightbox.end();
 	    //document.querySelector(".closeBtn")?.click();
 	    for(let i = 0; i < closeBtn.length; i++) {
 		closeBtn[i].addEventListener("click",function(){
-		    document.querySelector(".closeBtn")?.click();
+		    this.click();
 		});
 	    }
             event.preventDefault();
