@@ -820,9 +820,7 @@
             lightbox.end();
 	    //document.querySelector(".closeBtn")?.click();
 	    for(let i = 0; i < closeBtn.length; i++) {
-		closeBtn[i].addEventListener("click",function(){
-		    this.click();
-		});
+		closeBtn[i].click();
 	    }
             event.preventDefault();
         })
