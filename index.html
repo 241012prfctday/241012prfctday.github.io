@@ -126,7 +126,7 @@
         });
 
 	// 마음을 전하는 곳 modal button 클릭시 history push
-	document.getElementById("popupBtn").addEventListner("click",function(){
+	document.getElementById("popupBtn").addEventListener("click",function(){
 		window.history.pushState(null,'','');
 		console.log("popup modal open / history 확인");
 		console.log(window.history.length);
