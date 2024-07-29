@@ -124,10 +124,18 @@
                 'disableScrolling'  : true,
             })
         });
-        
-        // 사진에서 뒤로가기 버튼 실행시. 닫기 수행
+
+	// 마음을 전하는 곳 modal button 클릭시 history push
+	document.getElementById("popupBtn").addEventListner("click",function(){
+		window.history.pushState(null,'','');
+		console.log("popup modal open / history 확인");
+		console.log(window.history.length);
+	});
+	
+        // popup(갤러리, 마음)에서 뒤로가기 버튼 실행시. 닫기 수행
         window.addEventListener("popstate", (event) => {
             lightbox.end();
+	    document.querySelector(".closeBtn").click();
             event.preventDefault();
 
         })
@@ -492,7 +500,7 @@
             <p class="wow fadeInUp section7-title section7-main">마음을 전하는 곳</p>
             <br/>
             <!-- Button trigger modal -->
-            <button type="button" class="wow fadeInUp btn section7-button" data-toggle="modal" data-target="#groom" style="margin-bottom: 0.7em;">
+            <button type="button" class="wow fadeInUp btn section7-button" id="popupBtn" data-toggle="modal" data-target="#groom" style="margin-bottom: 0.7em;">
                 신랑 측 계좌번호 보기
             </button>
             <!-- Modal -->
@@ -528,13 +536,13 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                            <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">닫기</button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Button trigger modal -->
-            <button type="button" class="wow fadeInUp btn section7-button" data-toggle="modal" data-target="#bride">
+            <button type="button" class="wow fadeInUp btn section7-button" id="popupBtn" data-toggle="modal" data-target="#bride">
                 신부 측 계좌번호 보기
             </button>
             <!-- Modal -->
@@ -571,7 +579,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                            <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">닫기</button>
                         </div>
                     </div>
                 </div>
