@@ -125,12 +125,6 @@
             })
         });
 
-	// 마음을 전하는 곳 modal button 클릭시 history push
-	document.getElementById("popupBtn").addEventListener("click",function(){
-		window.history.pushState(null,'','');
-		console.log("popup modal open / history 확인");
-		console.log(window.history.length);
-	});
 	
         // popup(갤러리, 마음)에서 뒤로가기 버튼 실행시. 닫기 수행
         window.addEventListener("popstate", (event) => {
@@ -809,37 +803,21 @@
         }
     })
 
-    window.onpageshow = function (event) {
-	if (event.persisted) {
-		console.log('BFCahe로부터 복원됨');
-	}
-	else {
-		console.log('새로 열린 페이지');
-	}
-};
+	//     window.onpageshow = function (event) {
+	// 	if (event.persisted) {
+	// 		console.log('BFCahe로부터 복원됨');
+	// 	}
+	// 	else {
+	// 		console.log('새로 열린 페이지');
+	// 	}
+	// };
 
-    // // 뒤로가기 버튼
-    // var checkPageShow = false;
-    // // ios 뒤로가기
-    // window.onpageshow = function (event) {
-    //     checkPageShow = true;
-    //     console.log(event.persisted)
-    //     if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
-    //         Lightbox.end();
-    //         event.stopPropagation();
-    //         console.log("back버튼");
-    //         return false;
-    //     }
-    // }
-    // // 뒤로가기 이벤트 감지하여 웹뷰 화면 내리기 - aos 전용
-    // window.onpagehide = function (event) {
-    //     if ((window.performance.navigation.type == 0 || window.performance.navigation.type == 2) && checkPageShow) {
-    //         Lightbox.end();
-    //         event.stopPropagation();
-    //         console.log("back버튼");
-    //         return false;
-    //     }
-    // }
+	// 마음을 전하는 곳 modal button 클릭시 history push
+	document.getElementById("popupBtn").addEventListener("click",function(){
+		window.history.pushState(null,'','');
+		console.log("popup modal open / history 확인");
+		console.log(window.history.length);
+	});
  
 </script>
 
