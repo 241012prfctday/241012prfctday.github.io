@@ -209,7 +209,7 @@ header {
 }
 
 .section2-title {
-  margin-top: 1em;
+  /*margin-top: 1em;*/
   color: #333;
   text-shadow: none;
 }
