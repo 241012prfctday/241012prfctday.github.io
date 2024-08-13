@@ -4,20 +4,19 @@
 
 @font-face {
   font-family: 'NanumMyeongjo-r';
-  src: url('../font/NotoSansKR-Regular.ttf') format('truetype');
+  src: url('../font/NotoSansKR-Regular.woff') format('woff');
 }
 @font-face {
   font-family: 'NanumMyeongjo-e';
-  src: url('../font/NotoSansKR-Regular.ttf') format('truetype');
+  src: url('../font/NotoSansKR-Regular.woff') format('woff');
 }
 @font-face {
   font-family: 'NanumMyeongjo-b';
-  src: url('../font/omyu pretty.ttf') format('truetype');
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
 }
-
 @font-face {
   font-family: 'DancingScript-b';
-  src: url('../font/DancingScript-Bold.ttf') format('truetype');
+  src: url('../font/DancingScript-Bold.woff') format('woff');
 }
 
 /* Links */
