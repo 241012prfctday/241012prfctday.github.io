@@ -4,11 +4,11 @@
 
 @font-face {
   font-family: 'NanumMyeongjo-r';
-  src: url('../font/NotoSansKR-Regular.woff') format('woff');
+  src: url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'NanumMyeongjo-e';
-  src: url('../font/NotoSansKR-Regular.woff') format('woff');
+  src: url('//fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2') format('woff2');
 }
 @font-face {
   font-family: 'NanumMyeongjo-b';
