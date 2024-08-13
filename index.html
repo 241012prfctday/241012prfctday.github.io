@@ -124,13 +124,7 @@
                 'disableScrolling'  : true,
             })
         });
-        
-        // 사진에서 뒤로가기 버튼 실행시. 닫기 수행
-        window.addEventListener("popstate", (event) => {
-            lightbox.end();
-            event.preventDefault();
 
-        })
     </script>
 
     <!-- 드래그 / 오른쪽클릭 차단-->
@@ -148,7 +142,7 @@
 
     <br/>
     <main role="main" class="inner">
-
+	<br/>
         <!-- 인삿말 -->
         <div class="wow fadeInUp">
             <p class="wow fadeInUp section2-title section2-sub inner cover cover-container d-flex w-100 h-100 p-2 mx-auto flex-column">
@@ -156,7 +150,7 @@
                 저희 결혼합니다 <br/>
 	    	</p>
         </div>
-        <br/> <br/> <br/>
+        <br/> <br/>
         
         <!-- 신랑/신부 결혼식 요약(?)-->
     	<div class="wow fadeInUp">
@@ -166,11 +160,10 @@
             </p>
             <p class="top-title-sub">2024년 10월 12일 토요일 오후 1시</p>
             <p class="top-title-sub">디엘웨딩홀 마이아홀</p>
-            <br/><br/><br/>
+            <br/><br/>
             <hr class="cover-container"/>
-            <br/>
+		<br/>
         </div>
-        <br/>
 
         <!-- 인삿말 2 -->
         <p class="wow fadeInUp section2-title section2-main inner cover cover-container d-flex w-100 h-100 p-5 mx-auto flex-column" style="opacity:0.8">
@@ -352,14 +345,14 @@
                 </div>    
                 <br/>
             </div>
-            <br/><br/>
+            <br/>
         </div>
 
         <!-- 갤러리 -->
         <div class="section3 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
             <p class="wow fadeInUp section3-title section3-main">Gallery</p>
-            <div>
+            <div class="wow fadeInUp">
                 <a class="example-image-link" href="img/wedding/12.jpg" data-lightbox="example-set" data-title=""><img class="img-thumbnail" src="img/wedding/12.jpg" alt=""/></a>
                 <a class="example-image-link" href="img/wedding/01.jpg" data-lightbox="example-set" data-title=""><img class="img-thumbnail" src="img/wedding/01.jpg" alt=""/></a>
                 <a class="example-image-link" href="img/wedding/02.jpg" data-lightbox="example-set" data-title=""><img class="img-thumbnail" src="img/wedding/02.jpg" alt=""/></a>
@@ -375,13 +368,13 @@
                 <a class="example-image-link" href="img/wedding/10.jpg" data-lightbox="example-set" data-title=""><img class="img-thumbnail" src="img/wedding/10.jpg" alt=""/></a>
                 <a class="example-image-link" href="img/wedding/11.jpg" data-lightbox="example-set" data-title=""><img class="img-thumbnail" src="img/wedding/11.jpg" alt=""/></a>
             </div>
-        </br></br></br></br></br>
+        </br></br>
         </div>
         
 
         <!-- 위치/주차 안내 -->
         <div class="wow fadeInUp inner cover-container d-flex w-100 h-100 mx-auto flex-column">
-            <br/><br/>
+            
             <p class="wow fadeInUp section6-title section6-main">Location</p>
             <div class="wow fadeInUp  section6-title">
                 <p class="section6-location-main" style="margin-bottom: 0;">디엘웨딩홀 마이아홀</p>
@@ -480,7 +473,7 @@
                     </div>
                 </div>
             </div>
-            <br/><br/>
+            <br/>
         </div>
 	    
     
@@ -492,7 +485,7 @@
             <p class="wow fadeInUp section7-title section7-main">마음을 전하는 곳</p>
             <br/>
             <!-- Button trigger modal -->
-            <button type="button" class="wow fadeInUp btn section7-button" data-toggle="modal" data-target="#groom" style="margin-bottom: 0.7em;">
+            <button type="button" class="wow fadeInUp btn section7-button popupBtn" data-toggle="modal" data-target="#groom" style="margin-bottom: 0.7em;">
                 신랑 측 계좌번호 보기
             </button>
             <!-- Modal -->
@@ -528,13 +521,13 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                            <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">닫기</button>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- Button trigger modal -->
-            <button type="button" class="wow fadeInUp btn section7-button" data-toggle="modal" data-target="#bride">
+            <button type="button" class="wow fadeInUp btn section7-button popupBtn" data-toggle="modal" data-target="#bride">
                 신부 측 계좌번호 보기
             </button>
             <!-- Modal -->
@@ -571,7 +564,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+                            <button type="button" class="btn btn-secondary closeBtn" data-dismiss="modal">닫기</button>
                         </div>
                     </div>
                 </div>
@@ -583,9 +576,9 @@
             <img src="/img/information.jpg" style="max-width: 100%; height: auto;">
             </div>
         -->
-            <br/><br/>
+            <br/>
         </div>
-        <br/><br/>
+        <br/>
 
         <!-- D-Day -->
         <div class="wow fadeInUp section5 inner cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
@@ -650,13 +643,13 @@
 		</tr>
             </table>
             <p class="wow fadeInUp section5-title section5-sub" style="margin-top:1.8em">건희❤️지혜 결혼식이 <span id="d-day"></span>일 남았습니다.</p>
-            <br/><br/>
+            <br/>
         </div>
 
 
     <!-- 공유 -->
     <div class="wow fadeInUp inner cover-container d-flex w-100 h-100 mx-auto flex-column">
-        <br/><br/>
+        <br/>
         <p class="wow fadeInUp section7-title section7-main">청첩장 전달하기</p>
         <div class="col-md-12">
             <div class="my-3 text-center">
@@ -801,37 +794,35 @@
         }
     })
 
-    window.onpageshow = function (event) {
-	if (event.persisted) {
-		console.log('BFCahe로부터 복원됨');
-	}
-	else {
-		console.log('새로 열린 페이지');
-	}
-};
+	//     window.onpageshow = function (event) {
+	// 	if (event.persisted) {
+	// 		console.log('BFCahe로부터 복원됨');
+	// 	}
+	// 	else {
+	// 		console.log('새로 열린 페이지');
+	// 	}
+	// };
 
-    // // 뒤로가기 버튼
-    // var checkPageShow = false;
-    // // ios 뒤로가기
-    // window.onpageshow = function (event) {
-    //     checkPageShow = true;
-    //     console.log(event.persisted)
-    //     if (event.persisted || (window.performance && window.performance.navigation.type == 2)) {
-    //         Lightbox.end();
-    //         event.stopPropagation();
-    //         console.log("back버튼");
-    //         return false;
-    //     }
-    // }
-    // // 뒤로가기 이벤트 감지하여 웹뷰 화면 내리기 - aos 전용
-    // window.onpagehide = function (event) {
-    //     if ((window.performance.navigation.type == 0 || window.performance.navigation.type == 2) && checkPageShow) {
-    //         Lightbox.end();
-    //         event.stopPropagation();
-    //         console.log("back버튼");
-    //         return false;
-    //     }
-    // }
+	// 마음을 전하는 곳 modal button 클릭시 history push
+	const popupBtn = document.querySelectorAll(".popupBtn")
+	for(let i = 0; i < popupBtn.length; i++) {
+		popupBtn[i].addEventListener("click",function(){
+			window.history.pushState(null,'','');
+			//console.log("popup modal open / history 확인");
+			console.log(window.history.length);
+		});
+	}
+
+	// popup(갤러리, 마음)에서 뒤로가기 버튼 실행시. 닫기 수행
+	const closeBtn = document.querySelectorAll(".closeBtn");
+        window.addEventListener("popstate", (event) => {
+            lightbox.end();
+	    //document.querySelector(".closeBtn")?.click();
+	    for(let i = 0; i < closeBtn.length; i++) {
+		closeBtn[i].click();
+	    }
+            event.preventDefault();
+        })
  
 </script>
 
